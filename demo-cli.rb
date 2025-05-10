@@ -5,12 +5,12 @@
 class DemoCli < Formula
   desc ""
   homepage "https://github.com/shibme/demo-cli"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/shibme/demo-cli/releases/download/v0.0.2/demo-cli_0.0.2_darwin_arm64.zip"
-      sha256 "e6fb7eccccbe85a2c7de3f475f13a2018473b35172bc9e2ba1401f88c44ec761"
+      url "https://github.com/shibme/demo-cli/releases/download/v0.0.3/demo-cli_0.0.3_darwin_arm64.zip"
+      sha256 "094cce117faffa1b8d10c17d9389e2e9369b247ac16617a136fc261cef604af4"
 
       def install
         bin.install "demo-cli"
@@ -21,8 +21,8 @@ class DemoCli < Formula
 
   on_linux do
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/shibme/demo-cli/releases/download/v0.0.2/demo-cli_0.0.2_linux_arm64.zip"
-      sha256 "07336c92dcec1632ed5c4736a659e955f6d188cbedcebca9ba230a294b5417c4"
+      url "https://github.com/shibme/demo-cli/releases/download/v0.0.3/demo-cli_0.0.3_linux_arm64.zip"
+      sha256 "71de108506f7509a83477927072042bc68df1c8f94d42d6db3a713cb0e5f88b1"
       def install
         bin.install "demo-cli"
         generate_completions_from_executable(bin/"demo-cli","completion")
