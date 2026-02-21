@@ -3,7 +3,7 @@ cask "demo-cli" do
   name "demo-cli"
   desc ""
   homepage "https://github.com/shibme/demo-cli"
-  version "0.0.4"
+  version "0.0.5"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,14 +14,14 @@ cask "demo-cli" do
   on_macos do
     on_arm do
       url "https://github.com/shibme/demo-cli/releases/download/v#{version}/demo-cli_#{version}_darwin_arm64.zip"
-      sha256 "375cd0b4d41805798bbc5f319d3d8d34810b1a45b710e1065107a8ae8549e484"
+      sha256 "5776df43788f3de0f0995b10b83fe0ece437f86960784022447c8664edac7155"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/shibme/demo-cli/releases/download/v#{version}/demo-cli_#{version}_linux_arm64.zip"
-      sha256 "b55e085f35d5b031f0fa8bd46e94273aa41ff85869c31b67fedeb08028ddae7e"
+      sha256 "f974fb6ae75b12f8798c0aaacde2b354af51a6a5634f32252bfc62f1ba9a9615"
     end
   end
 
