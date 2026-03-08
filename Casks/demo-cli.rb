@@ -3,7 +3,7 @@ cask "demo-cli" do
   name "demo-cli"
   desc ""
   homepage "https://github.com/shibme/demo-cli"
-  version "0.0.5"
+  version "0.0.6"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,14 +14,14 @@ cask "demo-cli" do
   on_macos do
     on_arm do
       url "https://github.com/shibme/demo-cli/releases/download/v#{version}/demo-cli_#{version}_darwin_arm64.zip"
-      sha256 "5776df43788f3de0f0995b10b83fe0ece437f86960784022447c8664edac7155"
+      sha256 "8f9e8463a83556fa6031b0a662d2ff16ce5edfba51268f000cf5b97271253639"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/shibme/demo-cli/releases/download/v#{version}/demo-cli_#{version}_linux_arm64.zip"
-      sha256 "f974fb6ae75b12f8798c0aaacde2b354af51a6a5634f32252bfc62f1ba9a9615"
+      sha256 "899e7bca7a29332b9ada15269a5d682093f6fdc81221feb8e1d63fa6b1b566e8"
     end
   end
 
@@ -29,6 +29,12 @@ cask "demo-cli" do
     if OS.mac?
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/demo-cli"]
     end
+    system_command "/bin/mkdir", args: ["-p", "#{HOMEBREW_PREFIX}/etc/bash_completion.d"]
+    system_command "/bin/mkdir", args: ["-p", "#{HOMEBREW_PREFIX}/share/zsh/site-functions"]
+    system_command "/bin/mkdir", args: ["-p", "#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d"]
+    system_command "/bin/bash", args: ["-c", "#{staged_path}/demo-cli completion bash > #{HOMEBREW_PREFIX}/etc/bash_completion.d/demo-cli"]
+    system_command "/bin/bash", args: ["-c", "#{staged_path}/demo-cli completion zsh > #{HOMEBREW_PREFIX}/share/zsh/site-functions/_demo-cli"]
+    system_command "/bin/bash", args: ["-c", "#{staged_path}/demo-cli completion fish > #{HOMEBREW_PREFIX}/share/fish/vendor_completions.d/demo-cli.fish"]
   end
 
   # No zap stanza required
